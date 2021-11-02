@@ -1,0 +1,32 @@
+{
+    "id": "4F6DDD03",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1635807568170.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "expression": "intersections_from",
+        "caption": "intersections_from",
+        "totalObservations": 254,
+        "displayedObservations": 254,
+        "variables": 2,
+        "cacheKey": "754470D0",
+        "object": "intersections_from",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=intersections_from&cache_key=754470D0&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7721555037626788208,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1635807568170,
+    "read_only": false,
+    "read_only_alternatives": []
+}

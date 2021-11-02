@@ -1,0 +1,32 @@
+{
+    "id": "F3141047",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1635802022401.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "openstreets",
+        "caption": "openstreets",
+        "totalObservations": "254",
+        "displayedObservations": "254",
+        "variables": "24",
+        "cacheKey": "D8A91836",
+        "object": "openstreets",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=openstreets&cache_key=D8A91836&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 257698037760443,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1635802022401,
+    "read_only": false,
+    "read_only_alternatives": []
+}
