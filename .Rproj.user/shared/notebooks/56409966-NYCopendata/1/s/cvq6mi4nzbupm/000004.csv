@@ -1,4 +1,0 @@
-"0",""
-"0","merged <- left_join(openstreets, intersections_from, by = c(""id"")) %>% "
-"0","  left_join(openstreets, intersections_to, by = c(""id""))"
-"0",""
