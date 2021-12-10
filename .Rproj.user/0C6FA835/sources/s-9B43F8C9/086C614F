@@ -1,0 +1,32 @@
+{
+    "id": "086C614F",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639102968285.0,
+    "source_on_save": false,
+    "relative_order": 15,
+    "properties": {
+        "expression": "intersections_filled",
+        "caption": "intersections_filled",
+        "totalObservations": "285",
+        "displayedObservations": "285",
+        "variables": "60",
+        "cacheKey": "C47974C7",
+        "object": "intersections_filled",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=intersections_filled&cache_key=C47974C7&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3558738031130193974,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639102968285,
+    "read_only": false,
+    "read_only_alternatives": []
+}

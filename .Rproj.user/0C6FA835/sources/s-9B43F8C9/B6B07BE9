@@ -1,0 +1,32 @@
+{
+    "id": "B6B07BE9",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639113194084.0,
+    "source_on_save": false,
+    "relative_order": 29,
+    "properties": {
+        "expression": "lines_sf",
+        "caption": "lines_sf",
+        "totalObservations": "281",
+        "displayedObservations": "281",
+        "variables": "6",
+        "cacheKey": "05346A34",
+        "object": "lines_sf",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=lines_sf&cache_key=05346A34&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1639110563,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639113194084,
+    "read_only": false,
+    "read_only_alternatives": []
+}

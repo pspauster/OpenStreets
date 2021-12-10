@@ -1,0 +1,32 @@
+{
+    "id": "19DA05CB",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639113641222.0,
+    "source_on_save": false,
+    "relative_order": 30,
+    "properties": {
+        "expression": "dat_sf",
+        "caption": "dat_sf",
+        "totalObservations": 10,
+        "displayedObservations": 10,
+        "variables": 6,
+        "cacheKey": "3DC14E6C",
+        "object": "dat_sf",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=dat_sf&cache_key=3DC14E6C&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2108937497648,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639113641222,
+    "read_only": false,
+    "read_only_alternatives": []
+}

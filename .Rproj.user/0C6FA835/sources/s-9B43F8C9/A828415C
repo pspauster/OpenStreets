@@ -1,0 +1,32 @@
+{
+    "id": "A828415C",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639106609533.0,
+    "source_on_save": false,
+    "relative_order": 17,
+    "properties": {
+        "expression": "SF_df",
+        "caption": "SF_df",
+        "totalObservations": 3,
+        "displayedObservations": 3,
+        "variables": 2,
+        "cacheKey": "EB11CB4D",
+        "object": "SF_df",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=SF_df&cache_key=EB11CB4D&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1639104599,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639106609533,
+    "read_only": false,
+    "read_only_alternatives": []
+}

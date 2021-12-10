@@ -1,0 +1,88 @@
+{
+ "checksum": "/ipfs/QmRwFhdhr9BjQzFyrZK1PZZrUyDeUZ7z9MDG9UcWsZKUUe",
+ "depth": 2,
+ "entries": 292,
+ "format": "csv",
+ "formatConfig": {
+  "lazyQuotes": true
+ },
+ "length": 159918,
+ "path": "/ipfs/QmRXW9fMkki3SEZJVruoX36VMAzqEu2fpA5KnN6xVH2Xix",
+ "qri": "st:0",
+ "schema": {
+  "items": {
+   "items": [
+    {
+     "title": "geom",
+     "type": "string"
+    },
+    {
+     "title": "feature_id",
+     "type": "integer"
+    },
+    {
+     "title": "location_or_partner",
+     "type": "string"
+    },
+    {
+     "title": "borough",
+     "type": "string"
+    },
+    {
+     "title": "on_street",
+     "type": "string"
+    },
+    {
+     "title": "from_street",
+     "type": "string"
+    },
+    {
+     "title": "to_street",
+     "type": "string"
+    },
+    {
+     "title": "type",
+     "type": "string"
+    },
+    {
+     "title": "open_date",
+     "type": "number"
+    },
+    {
+     "title": "start_time",
+     "type": "string"
+    },
+    {
+     "title": "end_time",
+     "type": "string"
+    },
+    {
+     "title": "day_of_week",
+     "type": "string"
+    },
+    {
+     "title": "neighborhood_name",
+     "type": "string"
+    },
+    {
+     "title": "symbol",
+     "type": "string"
+    },
+    {
+     "title": "shape_length",
+     "type": "number"
+    },
+    {
+     "title": "length_in",
+     "type": "number"
+    },
+    {
+     "title": "shape_length_2",
+     "type": "number"
+    }
+   ],
+   "type": "array"
+  },
+  "type": "array"
+ }
+}

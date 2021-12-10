@@ -1,0 +1,32 @@
+{
+    "id": "2C369871",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639112233285.0,
+    "source_on_save": false,
+    "relative_order": 25,
+    "properties": {
+        "expression": "dt2",
+        "caption": "dt2",
+        "totalObservations": 2,
+        "displayedObservations": 2,
+        "variables": 3,
+        "cacheKey": "937BAD79",
+        "object": "dt2",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=dt2&cache_key=937BAD79&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885530450145326,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639112233285,
+    "read_only": false,
+    "read_only_alternatives": []
+}

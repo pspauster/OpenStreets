@@ -1,0 +1,32 @@
+{
+    "id": "4ED07C2B",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639110932941.0,
+    "source_on_save": false,
+    "relative_order": 20,
+    "properties": {
+        "expression": "pts_sf",
+        "caption": "pts_sf",
+        "totalObservations": "11",
+        "displayedObservations": "11",
+        "variables": "3",
+        "cacheKey": "0A3F0B3D",
+        "object": "pts_sf",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=pts_sf&cache_key=0A3F0B3D&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885530450145326,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639110932941,
+    "read_only": false,
+    "read_only_alternatives": []
+}

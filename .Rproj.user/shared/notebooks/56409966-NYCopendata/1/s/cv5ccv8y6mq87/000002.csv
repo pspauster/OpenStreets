@@ -1,0 +1,4 @@
+"0","ta_shapes <- left_join(tadata, live_streets, by = c(""borough"", ""location_or_partner""))"
+"0",""
+"0","ta_mismatch <- anti_join(tadata, live_streets, by = c(""borough"", ""location_or_partner""))"
+"0","  "

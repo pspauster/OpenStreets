@@ -1,0 +1,32 @@
+{
+    "id": "4D9999F9",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639104534324.0,
+    "source_on_save": false,
+    "relative_order": 16,
+    "properties": {
+        "expression": "intersections_lines",
+        "caption": "intersections_lines",
+        "totalObservations": "285",
+        "displayedObservations": "285",
+        "variables": "5",
+        "cacheKey": "6DF60D13",
+        "object": "intersections_lines",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=intersections_lines&cache_key=6DF60D13&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1639103366,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639104534324,
+    "read_only": false,
+    "read_only_alternatives": []
+}
