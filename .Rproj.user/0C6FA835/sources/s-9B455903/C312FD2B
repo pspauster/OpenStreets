@@ -1,0 +1,32 @@
+{
+    "id": "C312FD2B",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639446074207.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "expression": "live_streets",
+        "caption": "live_streets",
+        "totalObservations": 292,
+        "displayedObservations": 292,
+        "variables": 17,
+        "cacheKey": "D0AC738A",
+        "object": "live_streets",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=live_streets&cache_key=D0AC738A&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1639445607,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639446074207,
+    "read_only": false,
+    "read_only_alternatives": []
+}

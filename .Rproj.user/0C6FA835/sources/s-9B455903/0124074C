@@ -1,0 +1,32 @@
+{
+    "id": "0124074C",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1639445610769.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "open_streets_sf",
+        "caption": "open_streets_sf",
+        "totalObservations": 329,
+        "displayedObservations": 329,
+        "variables": 65,
+        "cacheKey": "E0B0DD69",
+        "object": "open_streets_sf",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=open_streets_sf&cache_key=E0B0DD69&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8026935334391669106,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1639445610769,
+    "read_only": false,
+    "read_only_alternatives": []
+}

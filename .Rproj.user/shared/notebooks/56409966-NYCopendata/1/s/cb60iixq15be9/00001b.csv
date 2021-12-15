@@ -776,7 +776,7 @@
 "0","  #mutate_if(is.character, tolower)"
 "0",""
 "0",""
-"0","view <- intersections %>% select(id, borough, location_or_partner, from_street,lat_from, long_from, on_street, to_street, lat_to, long_to) %>% "
+"0","view_misses <- intersections %>% select(id, borough, location_or_partner, from_street,lat_from, long_from, on_street, to_street, lat_to, long_to) %>% "
 "0","  filter(is.na(lat_from)|is.na(lat_to)) %>% "
 "0","  arrange(lat_from, desc(lat_to))"
 "0",""

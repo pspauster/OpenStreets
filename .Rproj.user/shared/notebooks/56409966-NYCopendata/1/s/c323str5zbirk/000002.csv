@@ -1,5 +1,27 @@
-"0","write.csv(""Open Streets Forever Report Crosstabs - Open Streets Details.csv"")
-"
+"0",""
+"0","taurl <- construct_download_url(url = ""https://docs.google.com/spreadsheets/d/1eLDRtRGMPMrL5ZOYeKX-BbHTm6fCgmu1gayiVhQqH4A/edit#gid=1931274377"")"
+"0",""
+"0","tatbl <- gsheet2tbl(url = taurl, sheetid = ""Open Streets Details"")"
+"2","Missing column names filled in: 'X2' [2], 'X3' [3], 'X4' [4], 'X5' [5], 'X7' [7], 'X8' [8], 'X9' [9], 'X10' [10], 'X11' [11], 'X13' [13], 'X14' [14], 'X15' [15], 'X16' [16], 'X17' [17], 'X18' [18], 'X19' [19], 'X20' [20], 'X21' [21], 'X22' [22], 'X23' [23], 'X24' [24], 'X25' [25], 'X26' [26], 'X27' [27], 'X28' [28], 'X29' [29], 'X30' [30], 'X31' [31], 'X32' [32], 'X33' [33], 'X34' [34], 'X36' [36], 'X37' [37], 'X38' [38], 'X39' [39], 'X40' [40], 'X41' [41], 'X42' [42], 'X43' [43], 'X44' [44], 'X45' [45], 'X46' [46], 'X47' [47], 'X48' [48], 'X49' [49], 'X50' [50], 'X51' [51]"
+"0","var_names <- tatbl %>% "
+"0","  as.tibble() %>% "
+"0","  slice(1) %>% "
+"0","  unlist(., use.names = FALSE)"
+"2","`as.tibble()` is deprecated as of tibble 2.0.0.
+Please use `as_tibble()` instead.
+The signature and semantics have changed, see `?as_tibble`.
+[90mThis warning is displayed once every 8 hours.[39m
+[90mCall `lifecycle::last_warnings()` to see where this warning was generated.[39m"
+"0","tadata <- tatbl %>% "
+"0","  filter(row_number()!=1)"
+"0",""
+"0","colnames(tadata) = var_names"
+"0","  "
+"0","tadata <- tadata %>%"
+"0","    clean_names() %>%"
+"0","    mutate(id = row_number())"
+"0",""
+"0","write.csv(""Open Streets Forever Report Crosstabs - Open Streets Details.csv"")"
 "1",""""",""x""
 "
 "1","""1"","

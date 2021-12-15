@@ -15,6 +15,11 @@ library(gsheet)
 library(janitor)
 library(sf)
 library(geojsonsf)
+library(tigris)
+library(urbnthemes)
+library(urbnmapr)
+
+set_urbn_defaults(style = "print")
 
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -95,9 +100,42 @@ live_streets <- read.csv("body.csv", header = FALSE, col.names = c("geometry", "
   mutate_if(is.character, tolower)
 
 live_streets_sf <- live_streets %>% 
+  separate(geometry, sep = ":", into = c("piece", "piece2")) %>% 
+  mutate(piece3 = str_sub(piece2, start = 1, end = -8)) %>% 
+  mutate(geometry = map(
+    paste0('{"type": "LineString","coordinates":', piece3, "}" ),
+    ~fromJSON(as.character(.x)))) %>% 
+  #mutate(geometry = geojson_sf(piece3))
   st_as_sf(geometry)
 
-geojson_sf(live_streets$geometry[1])
+  
+live_streets_sf$piece3 %>% 
+map_dfr(~geojson_sf(.x))
+
+geojson_sf(live_streets_sf$piece3[1])
+
+
+
+test <- paste0('{"type": "LineString","coordinates":', live_streets_sf$piece3[1], "}" )
+
+geojson_sf(test)
+
+live_streets %>% 
+  separate(geometry, sep = ":", into = "piece")
+
+sf <- geojson_sf("https://api.qri.cloud/ds/get/chriswhong/nyc-open-streets/body.csv")
+
+
+gc <- '{
+  "type": "GeometryCollection",
+  "geometries": [
+    {"type": "Point", "coordinates": [100.0, 0.0]},
+    {"type": "LineString", "coordinates": [[101.0, 0.0], [102.0, 1.0]]},
+    {"type" : "MultiPoint", "coordinates" : [[0,0], [1,1], [2,2]]}
+  ]
+}'
+sf <- geojson_sf(gc)
+
 
 ```
 
@@ -197,11 +235,91 @@ intersections_lines$geometry = do.call(
 
 lines_sf <- st_as_sf(intersections_lines)
 
-open_streets_sf <- left_join(intersections_filled, lines_sf, by = "id")
+open_streets_sf <- left_join(intersections_filled, lines_sf, by = "id") %>% 
+  st_as_sf()
 
 ```
 
+```{r}
 
+nyc_counties <- c("005", "047", "061", "081", "085") #fips for NYC counties
+
+
+nyc_water <- nyc_counties %>% 
+  map(~area_water("NY", .x)) %>% 
+  reduce(rbind) %>% 
+  st_set_crs(st_crs(open_streets_sf))
+
+coastline <- coastline()
+
+nyc_roads <- nyc_counties %>% 
+  map_dfr(~roads("NY", .x)) %>% 
+  filter(RTTYP %in% c("C", "I", "S", "U", "O"))
+
+nyc_outlines <- counties(state = "NY") %>% 
+  filter(COUNTYFP %in% nyc_counties) %>% 
+  
+
+```
+```{r}
+
+ggplot()+
+    geom_sf(data = nyc_outlines, mapping = aes(), fill = "dark grey", color = NA)+
+    geom_sf(data = nyc_water, mapping = aes(), fill = "#030531", color = NA)+
+    geom_sf(data = nyc_roads, mapping = aes(), color = "light grey", color = NA)+
+    geom_sf(data = open_streets_sf, mapping = aes(), color = "#FFAB40")+
+    #scale_color_manual(values = c("#55B748", "#db2b27"))+
+    #geom_sf_text(data = nyc_outlines, mapping = aes(label = NAMELSAD))+
+    theme(
+    panel.grid = element_blank(),
+    axis.line.x = element_blank(),
+    axis.line.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text = element_blank(),
+    plot.background = element_rect(fill = "#030531"),
+    legend.text = element_text(color = "white"),
+    plot.margin=grid::unit(c(0,0,0,0), "mm")
+  )+
+  guides(fill = guide_colourbar(barwidth = 10, barheight = 0.5))
+
+ggsave("allstreets.png",
+       device = "png",
+       #width = 4.5,
+       #height = 4.5
+       )
+
+
+```
+
+```{r}
+
+ggplot()+
+    geom_sf(data = nyc_outlines, mapping = aes(), fill = "dark grey", color = NA)+
+    geom_sf(data = nyc_water, mapping = aes(), fill = "#030531", color = NA)+
+    geom_sf(data = nyc_roads, mapping = aes(), color = "light grey", color = NA)+
+    geom_sf(data = open_streets_sf, mapping = aes(color = active_vs_non_operational))+
+    scale_color_manual(values = c("#55B748", "#db2b27"))+
+    #geom_sf_text(data = nyc_outlines, mapping = aes(label = NAMELSAD))+
+    theme(
+    panel.grid = element_blank(),
+    axis.line.x = element_blank(),
+    axis.line.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text = element_blank(),
+    plot.background = element_rect(fill = "#030531"),
+    legend.text = element_text(color = "white"),
+    plot.margin=grid::unit(c(0,0,0,0), "mm")
+  )+
+  guides(fill = guide_colourbar(barwidth = 10, barheight = 0.5))
+
+ggsave("activestreets.png",
+       device = "png",
+       #width = 4.5,
+       #height = 4.5
+       )
+
+
+```
 
 
 

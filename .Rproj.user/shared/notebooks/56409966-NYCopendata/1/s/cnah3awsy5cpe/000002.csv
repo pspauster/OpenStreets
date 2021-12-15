@@ -1,0 +1,3 @@
+"0","openstreets <- read.csv(""https://data.cityofnewyork.us/api/views/uiay-nctu/rows.csv?accessType=DOWNLOAD"") %>% "
+"0","  mutate(id = row_number(),"
+"0","         Borough = tolower(Borough))"
