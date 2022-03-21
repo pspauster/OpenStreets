@@ -1,5 +1,0 @@
-"0","geojson_sf(live_streets_sf$piece3[1])
-"
-"2","Error in rcpp_geojson_to_sf(geojson, expand_geometries) : 
-  No 'type' member at object index 0 - invalid GeoJSON
-"

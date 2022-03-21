@@ -1,0 +1,4 @@
+{
+ "qri": "rm:0",
+ "text": "## NYC Open Streets Locations\n\nThis is an automated dataset that pulls a list of NYC Open Street Locations with geometries from a publicly-accessible ArcGIS FeatureServer published by the NYC Department of Transportation.  \n\nThe same feed powers [this list of open streets on the DOT website](https://www1.nyc.gov/html/dot/html/pedestrians/openstreets.shtml).\n\nThis qri automated dataset runs every 24 hours.\n"
+}

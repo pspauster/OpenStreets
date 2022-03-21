@@ -1,0 +1,32 @@
+{
+    "id": "CBEEBD5E",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642030564957.0,
+    "source_on_save": false,
+    "relative_order": 8,
+    "properties": {
+        "expression": "whong_nyc",
+        "caption": "whong_nyc",
+        "totalObservations": 525,
+        "displayedObservations": 525,
+        "variables": 43,
+        "cacheKey": "90CE45D8",
+        "object": "whong_nyc",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=whong_nyc&cache_key=90CE45D8&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1550088171224,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642030564957,
+    "read_only": false,
+    "read_only_alternatives": []
+}

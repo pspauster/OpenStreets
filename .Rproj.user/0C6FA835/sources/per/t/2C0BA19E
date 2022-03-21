@@ -1,0 +1,32 @@
+{
+    "id": "2C0BA19E",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642030790532.0,
+    "source_on_save": false,
+    "relative_order": 10,
+    "properties": {
+        "expression": "ta_nyc",
+        "caption": "ta_nyc",
+        "totalObservations": "398",
+        "displayedObservations": "398",
+        "variables": "75",
+        "cacheKey": "776789FF",
+        "object": "ta_nyc",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=ta_nyc&cache_key=776789FF&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1550088171224,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642030790532,
+    "read_only": false,
+    "read_only_alternatives": []
+}

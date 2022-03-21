@@ -1,0 +1,8 @@
+"0","### CPI (Consumer Price Index) to adjust for inflation between 2000 and 2019"
+"0","#Add inflation factor: 2000 rents in 2019 dollars (source: https://www.bls.gov/data/inflation_calculator.htm)"
+"0","CPI <- 1.49118 # Change the CPI to represent the studied years using the bls inflation calculator. "
+"0",""
+"0","### Census API Key"
+"0","# Input your census API key below to access the census data. You can sign-up for a key here:https://api.census.gov/data/key_signup.html"
+"0","census_api_key = ""c32dfbf7d25fe9558fd11bf021780457970f96ff"""
+"0",""

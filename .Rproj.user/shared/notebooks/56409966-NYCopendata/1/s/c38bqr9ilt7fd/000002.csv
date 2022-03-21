@@ -1,0 +1,17 @@
+"0","download.file(""https://api.qri.cloud/ds/get/chriswhong/nyc-open-streets?format=zip"", destfile = ""open_streets_shape.zip"", mode = ""wb"")"
+"2","trying URL 'https://api.qri.cloud/ds/get/chriswhong/nyc-open-streets?format=zip'
+"
+"2","Content type 'application/zip'"
+"2"," length unknown
+"
+"2","downloaded 44 KB
+
+"
+"0","unzip(""open_streets_shape.zip"")"
+"0",""
+"0","whong_live_streets_df <- read.csv(""body.csv"", header = FALSE, col.names = c(""geometry"", ""feature_id"", ""location_or_partner"", ""borough"", ""on_street"","
+"0","                                                                   ""from_street"", ""to_street"",""type"",""open_date"", ""start_time"", "
+"0","                                                                   ""end_time"",""day_of_week"", ""neighborhood_name"", ""symbol"", ""shape_length"", "
+"0","                                                                   ""length_in"", ""shape_length_2"")) %>% "
+"0","  clean_names() %>% "
+"0","  mutate_if(is.character, tolower)"

@@ -1,0 +1,37 @@
+"0",""
+"0","# Define placed as ""principal city""  as ""Principal"" and those excluded as ""suburbs"". More on the Census designations here: https://www.census.gov/programs-surveys/metro-micro/about.html#:~:text=The%20largest%20city%20in%20each,concerning%20population%20size%20and%20employment."
+"0",""
+"0","principal_cities <- read_csv(""metro_micro_principal_cities_2018_census.csv"", n_max = 1268) %>%"
+"0","  mutate(principal_city = TRUE)%>%"
+"0","  mutate("
+"0","    format_zeros= str_pad(geoid, width = 7, side = ""left"", pad = ""0"") # Address leading zeros issue"
+"0","  )%>%"
+"0","  select(format_zeros, principal_city) %>%"
+"0","  rename(geoid = format_zeros) "
+"2","[1mRows: [22m[34m1268[39m [1mColumns: [22m[34m7[39m
+"
+"2","[36m--[39m [1mColumn specification[22m [36m-------------------------------------------------------------------------------------------------------------------------[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (3): CBSA Title, Metropolitan/Micropolitan Statistical Area, Principal City Name
+[32mdbl[39m (4): CBSA Code, FIPS State Code, FIPS Place Code, geoid
+"
+"2","
+[36mi[39m Use [38;5;251m[48;5;235m[38;5;251m[48;5;235m`spec()`[48;5;235m[38;5;251m[49m[39m to retrieve the full column specification for this data.
+[36mi[39m Specify the column types or set [38;5;251m[48;5;235m[38;5;251m[48;5;235m`show_col_types = FALSE`[48;5;235m[38;5;251m[49m[39m to quiet this message.
+"
+"0","# Join data, and create principal and suburbs flag"
+"0","homeownership_data <- homeownership_data %>%"
+"0","    left_join(principal_cities, by = ""geoid"")%>%"
+"0","  mutate(place_type = case_when("
+"0","    principal_city == TRUE ~ ""Principal"","
+"0","    is.na(principal_city) ~ ""Suburbs"""
+"0","  )) %>%"
+"0","  mutate(place_type_flag = case_when("
+"0","    principal_city == TRUE ~ 1,"
+"0","    is.na(principal_city) ~ 0"
+"0","  ))"
+"0",""
+"0","## Create state IDs based on geoid"
+"0","homeownership_data <- homeownership_data %>%"
+"0"," mutate(stateid = substr(geoid, 1,2)"
+"0"," )"

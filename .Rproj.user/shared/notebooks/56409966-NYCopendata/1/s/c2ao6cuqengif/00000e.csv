@@ -1,0 +1,4 @@
+"0","leaflet() %>% addProviderTiles(""CartoDB.Positron"") %>% setView(lng = -74.0, lat = 40.7, zoom = 8.4) %>% "
+"0","  addTiles() %>% "
+"0","  addPolylines(data = ta_open_streets_sf) %>% "
+"0","  addPolylines(data = sf_live_streets, color = ""#00FF00"", opacity = 0.5)"

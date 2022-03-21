@@ -1,0 +1,32 @@
+{
+    "id": "B0F4F1CC",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642017984666.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "expression": "ta_shapes",
+        "caption": "ta_shapes",
+        "totalObservations": "471",
+        "displayedObservations": "471",
+        "variables": "67",
+        "cacheKey": "BC228464",
+        "object": "ta_shapes",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=ta_shapes&cache_key=BC228464&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1642016621,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642017984666,
+    "read_only": false,
+    "read_only_alternatives": []
+}

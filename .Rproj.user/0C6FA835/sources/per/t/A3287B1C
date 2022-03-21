@@ -1,0 +1,32 @@
+{
+    "id": "A3287B1C",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642030608960.0,
+    "source_on_save": false,
+    "relative_order": 9,
+    "properties": {
+        "expression": "whong_live_streets_sf",
+        "caption": "whong_live_streets_sf",
+        "totalObservations": "292",
+        "displayedObservations": "292",
+        "variables": "17",
+        "cacheKey": "12252569",
+        "object": "whong_live_streets_sf",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=whong_live_streets_sf&cache_key=12252569&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3548067076488918113,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642030608960,
+    "read_only": false,
+    "read_only_alternatives": []
+}

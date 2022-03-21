@@ -1,6 +1,0 @@
-"0","test <- left_join(view, live_streets %>% select(borough, location_or_partner, geometry, on_street, to_street, from_street), by = c(""borough"", ""location_or_partner""), suffix = ""_whong"")
-"
-"2","Error: `suffix` must be a character vector of length 2.
-[34mi[39m suffix is a character vector of length 1.
-[90mRun `rlang::last_error()` to see where the error occurred.[39m
-"

@@ -1,0 +1,32 @@
+{
+    "id": "D2448110",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642029843817.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "expression": "live_streets",
+        "caption": "live_streets",
+        "totalObservations": 292,
+        "displayedObservations": 292,
+        "variables": 17,
+        "cacheKey": "CCCFD8B2",
+        "object": "live_streets",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=live_streets&cache_key=CCCFD8B2&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7954884637903448438,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642029843817,
+    "read_only": false,
+    "read_only_alternatives": []
+}

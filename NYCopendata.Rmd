@@ -18,6 +18,7 @@ library(geojsonsf)
 library(tigris)
 library(urbnthemes)
 library(urbnmapr)
+library(leaflet)
 
 set_urbn_defaults(style = "print")
 
@@ -30,19 +31,19 @@ geoclient_api_key(key = "1f02b4033c75431bbba245d5e8015a93")
 ## Get current open streets
 
 ```{r}
-openstreets <- read.csv("https://data.cityofnewyork.us/api/views/uiay-nctu/rows.csv?accessType=DOWNLOAD") %>% 
+nyc_openstreets <- read.csv("https://data.cityofnewyork.us/api/views/uiay-nctu/rows.csv?accessType=DOWNLOAD") %>% 
   mutate(id = row_number(),
          Borough = tolower(Borough))
 ```
 
 ```{r}
-count(openstreets, Borough)
+count(nyc_openstreets, Borough)
 
 ```
-
+# geocode nyc open portal data intersections
 ```{r}
 
-intersections <- openstreets %>% 
+nyc_intersections <- nyc_openstreets %>% 
   mutate(geo_from = geo_intersection(cross_street_1 = On.Street,
                         cross_street_2 = From.Street,
                         borough = Borough),
@@ -53,10 +54,15 @@ intersections <- openstreets %>%
                         borough = Borough),
          lat_to = geo_to$latitude,
          long_to = geo_to$longitude) %>% 
-  select(-geo_from, -geo_to)
+  select(-geo_from, -geo_to)%>% 
+  clean_names() %>% 
+  mutate_if(is.character, tolower)
 
 
 ```
+
+
+
 
 ## Get Trans Alt Data
 
@@ -78,7 +84,8 @@ colnames(tadata) = var_names
   
 tadata <- tadata %>%
     clean_names() %>%
-    mutate(id = row_number())
+    mutate(id = row_number()) %>% 
+    mutate_if(is.character, tolower)
 
 write.csv("Open Streets Forever Report Crosstabs - Open Streets Details.csv")
 ```
@@ -86,66 +93,46 @@ write.csv("Open Streets Forever Report Crosstabs - Open Streets Details.csv")
 ## Get Chris Whong Live Data shapefile
 
 ```{r}
-
-
 download.file("https://api.qri.cloud/ds/get/chriswhong/nyc-open-streets?format=zip", destfile = "open_streets_shape.zip", mode = "wb")
-
 unzip("open_streets_shape.zip")
 
-live_streets <- read.csv("body.csv", header = FALSE, col.names = c("geometry", "feature_id", "location_or_partner", "borough", "on_street",
+whong_live_streets_df <- read.csv("body.csv", header = FALSE, col.names = c("geometry", "feature_id", "location_or_partner", "borough", "on_street",
                                                                    "from_street", "to_street","type","open_date", "start_time", 
                                                                    "end_time","day_of_week", "neighborhood_name", "symbol", "shape_length", 
                                                                    "length_in", "shape_length_2")) %>% 
   clean_names() %>% 
   mutate_if(is.character, tolower)
+```
 
-live_streets_sf <- live_streets %>% 
-  separate(geometry, sep = ":", into = c("piece", "piece2")) %>% 
-  mutate(piece3 = str_sub(piece2, start = 1, end = -8)) %>% 
-  mutate(geometry = map(
-    paste0('{"type": "LineString","coordinates":', piece3, "}" ),
-    ~fromJSON(as.character(.x)))) %>% 
-  #mutate(geometry = geojson_sf(piece3))
-  st_as_sf(geometry)
+data from: https://qri.cloud/chriswhong/nyc-open-streets 
+```{r}
 
-  
-live_streets_sf$piece3 %>% 
-map_dfr(~geojson_sf(.x))
+url_geojson <- "https://services.arcgis.com/wmZOI9vyUBq1zTZx/arcgis/rest/services/Open_Streets_Dissolve_FS/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token="
 
-geojson_sf(live_streets_sf$piece3[1])
-
-
-
-test <- paste0('{"type": "LineString","coordinates":', live_streets_sf$piece3[1], "}" )
-
-geojson_sf(test)
-
-live_streets %>% 
-  separate(geometry, sep = ":", into = "piece")
-
-sf <- geojson_sf("https://api.qri.cloud/ds/get/chriswhong/nyc-open-streets/body.csv")
-
-
-gc <- '{
-  "type": "GeometryCollection",
-  "geometries": [
-    {"type": "Point", "coordinates": [100.0, 0.0]},
-    {"type": "LineString", "coordinates": [[101.0, 0.0], [102.0, 1.0]]},
-    {"type" : "MultiPoint", "coordinates" : [[0,0], [1,1], [2,2]]}
-  ]
-}'
-sf <- geojson_sf(gc)
+whong_live_streets_sf <- geojson_sf(url_geojson)%>% 
+  clean_names() %>% 
+  mutate_if(is.character, tolower) %>% 
+  rename(location_or_partner = location_p)
 
 
 ```
-
+# try to merge these three different datasets into one
 ```{r}
+
+whong_nyc <- full_join(nyc_intersections, whong_live_streets_sf, by = c("borough", "location_or_partner"))
+
+ta_nyc <- full_join(nyc_intersections, tadata, by = c("borough", "location_or_partner", "on_street", "from_street", "to_street"))
+
+ta_whong <- full_join(tadata, whong_live_streets_sf, by = c("borough", "location_or_partner"))
+
 ta_shapes <- left_join(tadata, live_streets, by = c("borough", "location_or_partner"))
 
 ta_mismatch <- anti_join(tadata, live_streets, by = c("borough", "location_or_partner"))
   
 ```
 
+
+# geocode ta data intersections
 ```{r}
 
 tadata_clean <- tadata  %>% 
@@ -189,7 +176,7 @@ view_misses <- intersections %>% select(id, borough, location_or_partner, from_s
 
 
 ```
-
+# for missing/unmatched intersections, use TA's "nearby address field"
 ```{r}
 
 addresses <- tadata %>% 
@@ -235,11 +222,11 @@ intersections_lines$geometry = do.call(
 
 lines_sf <- st_as_sf(intersections_lines)
 
-open_streets_sf <- left_join(intersections_filled, lines_sf, by = "id") %>% 
+ta_open_streets_sf <- left_join(intersections_filled, lines_sf, by = "id") %>% 
   st_as_sf()
 
 ```
-
+# Get elements for map
 ```{r}
 
 nyc_counties <- c("005", "047", "061", "081", "085") #fips for NYC counties
@@ -257,10 +244,13 @@ nyc_roads <- nyc_counties %>%
   filter(RTTYP %in% c("C", "I", "S", "U", "O"))
 
 nyc_outlines <- counties(state = "NY") %>% 
-  filter(COUNTYFP %in% nyc_counties) %>% 
+  filter(COUNTYFP %in% nyc_counties)
   
 
 ```
+
+# Plot map of all streets
+
 ```{r}
 
 ggplot()+
@@ -290,6 +280,7 @@ ggsave("allstreets.png",
 
 
 ```
+# Map of active streets according to TA
 
 ```{r}
 
@@ -321,25 +312,42 @@ ggsave("activestreets.png",
 
 ```
 
+# Join between whong data and TA data
 
-
-
-
-
-
+```{r}
+ggplot()+
+    geom_sf(data = nyc_outlines, mapping = aes(), fill = "dark grey", color = NA)+
+    geom_sf(data = nyc_water, mapping = aes(), fill = "#030531", color = NA)+
+    geom_sf(data = nyc_roads, mapping = aes(), color = "light grey", color = NA)+
+    geom_sf(data = sf_live_streets, mapping = aes(), color = "#FFAB40")+
+    geom_sf(data = open_streets_sf, mapping = aes(color = active_vs_non_operational), alpha = 0.5)+
+    scale_color_manual(values = c("#55B748", "#db2b27"))+
+    #scale_color_manual(values = c("#55B748", "#db2b27"))+
+    #geom_sf_text(data = nyc_outlines, mapping = aes(label = NAMELSAD))+
+    theme(
+    panel.grid = element_blank(),
+    axis.line.x = element_blank(),
+    axis.line.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text = element_blank(),
+    plot.background = element_rect(fill = "#030531"),
+    legend.text = element_text(color = "white"),
+    plot.margin=grid::unit(c(0,0,0,0), "mm")
+  )+
+  guides(fill = guide_colourbar(barwidth = 10, barheight = 0.5))
+```
+```{r}
+leaflet() %>% addProviderTiles("CartoDB.Positron") %>% setView(lng = -74.0, lat = 40.7, zoom = 8.4) %>% 
+  addTiles() %>% 
+  addPolylines(data = ta_open_streets_sf) %>% 
+  addPolylines(data = sf_live_streets, color = "#00FF00", opacity = 0.5)
+  
+```
 
 
 
 ```{r}
-test <- left_join(view, live_streets %>% select(borough, location_or_partner, geometry, on_street, to_street, from_street), by = c("borough", "location_or_partner", "on_street"), suffix = c("_ta", "_whong"))
-
-antitest <- anti_join(view, live_streets %>% select(borough, location_or_partner, geometry, on_street, to_street, from_street), by = c("borough", "location_or_partner", "on_street"), suffix = c("_ta", "_whong"))
-
-view2 <- test %>% filter(is.na(geometry)) %>% 
-  rename(location_or_partner = location_or_partner.x)
-
-test2 <- left_join(view2, live_streets, by =c("location_or_partner", "borough")) %>% 
-  select(starts_with("on"), starts_with("from"), starts_with("to"))
+point_match <- st_intersects(sf_live_streets, open_streets_sf)
 
 ```
 

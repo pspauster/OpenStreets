@@ -1,4 +1,9 @@
-"0","ta_shapes <- left_join(tadata, live_streets, by = c(""borough"", ""location_or_partner""))"
-"0",""
-"0","ta_mismatch <- anti_join(tadata, live_streets, by = c(""borough"", ""location_or_partner""))"
-"0","  "
+"0","whong_nyc <- full_join(nyc_intersections, whong_live_streets_sf)
+"
+"2","Joining, by = c(""borough"", ""on_street"", ""to_street"", ""type"", ""open_date"")
+"
+"2","Error: Can't join on `x$open_date` x `y$open_date` because of incompatible types.
+[34mi[39m `x$open_date` is of type <character>>.
+[34mi[39m `y$open_date` is of type <double>>.
+[90mRun `rlang::last_error()` to see where the error occurred.[39m
+"

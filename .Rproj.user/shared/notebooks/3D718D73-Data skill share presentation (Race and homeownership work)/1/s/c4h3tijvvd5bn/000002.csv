@@ -1,0 +1,4 @@
+"0","#Joining 2019 to 2000 data"
+"0","homeownership_data <- census_2019 %>%"
+"0","  full_join(census_2000, by = ""geoid"")%>%"
+"0","  filter(size_type_update%in% c(""Small and midsize cities  (50k-500k)"", ""Large cities (500k +)""))"

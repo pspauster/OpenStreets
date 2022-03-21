@@ -1,0 +1,32 @@
+{
+    "id": "749C3357",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642030411224.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "expression": "nyc_intersections",
+        "caption": "nyc_intersections",
+        "totalObservations": "246",
+        "displayedObservations": "246",
+        "variables": "28",
+        "cacheKey": "20763D77",
+        "object": "nyc_intersections",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=nyc_intersections&cache_key=20763D77&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885530450145326,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642030411224,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,32 @@
+{
+    "id": "6C8AA6C8",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1642031050679.0,
+    "source_on_save": false,
+    "relative_order": 11,
+    "properties": {
+        "expression": "ta_whong",
+        "caption": "ta_whong",
+        "totalObservations": 576,
+        "displayedObservations": 576,
+        "variables": 67,
+        "cacheKey": "C00558EE",
+        "object": "ta_whong",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=ta_whong&cache_key=C00558EE&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1550097493792,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1642031050679,
+    "read_only": false,
+    "read_only_alternatives": []
+}
